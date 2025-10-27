@@ -53,7 +53,6 @@
 
       document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
         e.preventDefault();
-        await signOut(auth);
         localStorage.removeItem('loginTime');
         window.location.replace('authentication.html'); // redirect to login page
       });
