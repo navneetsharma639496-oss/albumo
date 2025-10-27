@@ -40,49 +40,6 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-
-    (async function () {
-      const res = await fetch('./component/navbar.html');
-      const html = await res.text();
-      document.getElementById('nav').innerHTML = html;
-
-
-      initNavbar();
-      initalbum();
-
-          document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
-      e.preventDefault();
-      await signOut(auth);
-      localStorage.removeItem('loginTime');
-      window.location.replace('authentication.html'); // redirect to login page
-    });
-    })();
-
-    function initNavbar() {
-      const toggle = document.getElementById("menu-toggle");
-      const links = document.getElementById("nav-links");
-
-      if (toggle && links) {
-        toggle.addEventListener("click", () => {
-          links.classList.toggle("active");
-        });
-      }
-    }
-
-    function initalbum(){
-    const albumLink = document.getElementById("albumLink");
-
-    albumLink?.addEventListener("click", () => {
-      const user = auth.currentUser;
-
-      if (!user) {
-        return window.location.href = "authentication.html";
-      }
-
-      const folderName = user.uid;
-      window.location.href = `index.html?folder=${folderName}`;
-    });
-  }
     onAuthStateChanged(auth, (user) => {
       if (!user) {
         console.log("⛔ Firebase: No user — redirecting");
@@ -171,3 +128,47 @@
     }
     window.onload = () => checkAuth();
   });
+
+
+      (async function () {
+      const res = await fetch('./component/navbar.html');
+      const html = await res.text();
+      document.getElementById('nav').innerHTML = html;
+
+
+      initNavbar();
+      initalbum();
+
+          document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
+      e.preventDefault();
+      await signOut(auth);
+      localStorage.removeItem('loginTime');
+      window.location.replace('authentication.html'); // redirect to login page
+    });
+    })();
+
+    function initNavbar() {
+      const toggle = document.getElementById("menu-toggle");
+      const links = document.getElementById("nav-links");
+
+      if (toggle && links) {
+        toggle.addEventListener("click", () => {
+          links.classList.toggle("active");
+        });
+      }
+    }
+
+    function initalbum(){
+    const albumLink = document.getElementById("albumLink");
+
+    albumLink?.addEventListener("click", () => {
+      const user = auth.currentUser;
+
+      if (!user) {
+        return window.location.href = "authentication.html";
+      }
+
+      const folderName = user.uid;
+      window.location.href = `index.html?folder=${folderName}`;
+    });
+  }

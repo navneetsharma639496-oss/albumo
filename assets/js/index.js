@@ -6,37 +6,6 @@
     // jsPaths  -> array of JS files
     // containerId -> where to inject
     // ==========================
-    (async function () {
-      const res = await fetch('./component/navbar.html');
-      const html = await res.text();
-      document.getElementById('nav').innerHTML = html;
-
-      initNavbar();
-
-
-      document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
-        e.preventDefault();
-        await signOut(auth);
-        localStorage.removeItem('loginTime');
-        window.location.replace('authentication.html'); // redirect to login page
-      });
-    })();
-
-    function initNavbar() {
-      const toggle = document.getElementById("menu-toggle");
-      const links = document.getElementById("nav-links");
-
-      if (toggle && links) {
-        toggle.addEventListener("click", () => {
-          links.classList.toggle("active");
-        });
-      }
-    }
-
-    // Load navbar on page load
-    window.onload = async () => {
-      await loadUserImages();
-    };
 
     // Change this URL to your backend API deployed URL
     const backendApiBase = 'https://cloudinary-image-api.onrender.com';
@@ -73,6 +42,37 @@
         alert("Failed to load images. Please try again later.");
       }
     }
+
+        (async function () {
+      const res = await fetch('./component/navbar.html');
+      const html = await res.text();
+      document.getElementById('nav').innerHTML = html;
+
+      initNavbar();
+
+
+      document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
+        e.preventDefault();
+        await signOut(auth);
+        localStorage.removeItem('loginTime');
+        window.location.replace('authentication.html'); // redirect to login page
+      });
+    })();
+
+    function initNavbar() {
+      const toggle = document.getElementById("menu-toggle");
+      const links = document.getElementById("nav-links");
+
+      if (toggle && links) {
+        toggle.addEventListener("click", () => {
+          links.classList.toggle("active");
+        });
+      }
+    }
+
+    window.onload = async () => {
+      await loadUserImages();
+    };
     // Append each image to the gallery div
     function addPhotoToGallery(url) {
       const album = document.getElementById("album");
