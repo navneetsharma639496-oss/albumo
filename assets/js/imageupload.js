@@ -1,41 +1,28 @@
  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
   import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
-  (async function () {
-    const res = await fetch('./component/navbar.html');
-    const html = await res.text();
-    document.getElementById('nav').innerHTML = html;
+  // (async function () {
+  //   const res = await fetch('./component/navbar.html');
+  //   const html = await res.text();
+  //   document.getElementById('nav').innerHTML = html;
 
 
-    initNavbar();
-    initalbum();
-  })();
+  //   initNavbar();
+  //   initalbum();
+  // })();
 
 
-  function initNavbar() {
-    const toggle = document.getElementById("menu-toggle");
-    const links = document.getElementById("nav-links");
+  // function initNavbar() {
+  //   const toggle = document.getElementById("menu-toggle");
+  //   const links = document.getElementById("nav-links");
 
-    if (toggle && links) {
-      toggle.addEventListener("click", () => {
-        links.classList.toggle("active");
-      });
-    }
+  //   if (toggle && links) {
+  //     toggle.addEventListener("click", () => {
+  //       links.classList.toggle("active");
+  //     });
+  //   }
     
-  }
-  function initalbum(){
-    const albumLink = document.getElementById("albumLink");
+  // }
 
-    albumLink?.addEventListener("click", () => {
-      const user = auth.currentUser;
-
-      if (!user) {
-        return window.location.href = "authentication.html";
-      }
-
-      const folderName = user.uid;
-      window.location.href = `gallery.html?folder=${folderName}`;
-    });
-  }
   document.addEventListener("DOMContentLoaded", () => {
     console.log("Script Loaded ✅");
     const cloudName = "denpwx9kt";
@@ -61,6 +48,7 @@
 
 
       initNavbar();
+      initalbum();
     })();
 
     function initNavbar() {
@@ -74,6 +62,20 @@
       }
     }
 
+    function initalbum(){
+    const albumLink = document.getElementById("albumLink");
+
+    albumLink?.addEventListener("click", () => {
+      const user = auth.currentUser;
+
+      if (!user) {
+        return window.location.href = "authentication.html";
+      }
+
+      const folderName = user.uid;
+      window.location.href = `gallery.html?folder=${folderName}`;
+    });
+  }
     onAuthStateChanged(auth, (user) => {
       if (!user) {
         console.log("⛔ Firebase: No user — redirecting");
