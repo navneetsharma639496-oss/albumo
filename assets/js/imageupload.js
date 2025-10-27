@@ -7,6 +7,7 @@
 
 
     initNavbar();
+    initalbum();
   })();
 
 
@@ -19,6 +20,21 @@
         links.classList.toggle("active");
       });
     }
+    
+  }
+  function initalbum(){
+    const albumLink = document.getElementById("albumLink");
+
+    albumLink?.addEventListener("click", () => {
+      const user = auth.currentUser;
+
+      if (!user) {
+        return window.location.href = "authentication.html";
+      }
+
+      const folderName = user.uid;
+      window.location.href = `gallery.html?folder=${folderName}`;
+    });
   }
   document.addEventListener("DOMContentLoaded", () => {
     console.log("Script Loaded ✅");
