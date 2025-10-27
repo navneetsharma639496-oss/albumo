@@ -70,11 +70,11 @@
         if (isLoginMode) {
           userCredential = await signInWithEmailAndPassword(auth, email, pass);
           showMessage('Logged in successfully!', false);
-          window.location.replace('imageUpload.html');
+          window.location.replace('imageupload.html');
         } else {
           userCredential = await createUserWithEmailAndPassword(auth, email, pass);
           showMessage('Account created successfully!', false);
-          window.location.replace('imageUpload.html');
+          window.location.replace('imageupload.html');
         }
 
         const user = userCredential.user;
