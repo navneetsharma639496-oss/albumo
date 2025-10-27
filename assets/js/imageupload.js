@@ -193,11 +193,17 @@ function attachNavbarListeners() {
     window.location.replace('authentication.html');
   });
 
-  albumLink?.addEventListener("click", () => {
-    const user = auth.currentUser;
-    if (!user) return window.location.href = "authentication.html";
-    const folderName = user.uid;
-    window.location.href = `index.html?folder=${folderName}`;
+albumLink?.addEventListener("click", () => {
+  // Wait for Firebase to finish restoring the auth state
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      console.warn("No user found — redirecting to auth");
+      window.location.href = "authentication.html";
+    } else {
+      const folderName = user.uid;
+      window.location.href = `index.html?folder=${folderName}`;
+    }
   });
+});
 }
 
