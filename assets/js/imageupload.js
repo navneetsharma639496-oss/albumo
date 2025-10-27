@@ -49,6 +49,13 @@
 
       initNavbar();
       initalbum();
+
+          document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
+      e.preventDefault();
+      await signOut(auth);
+      localStorage.removeItem('loginTime');
+      window.location.replace('authentication.html'); // redirect to login page
+    });
     })();
 
     function initNavbar() {
@@ -162,11 +169,5 @@
       div.appendChild(img);
       gallery.prepend(div);
     }
-    document.getElementById('logoutBtn')?.addEventListener('click', async (e) => {
-      e.preventDefault();
-      await signOut(auth);
-      localStorage.removeItem('loginTime');
-      window.location.replace('authentication.html'); // redirect to login page
-    });
     window.onload = () => checkAuth();
   });
