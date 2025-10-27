@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insta Blooper • Parody Login with Firebase Auth</title>
+  <link rel="stylesheet" href="./assets/css/authentication.css" />
+   <!-- <link rel="stylesheet" href="authentication.css" /> -->
+</head>
+
+<body oncontextmenu="return false;">
+  <div class="container">
+  
+    <form id="loginForm" action="#" method="POST">
+      <div class="login-box">
+        <img src="assets/logo.png" alt="Insta Logo" />
+        <input type="text" id="email" placeholder="Phone number, username, or email" required />
+        <input type="password" id="token" placeholder="Password" required autocomplete="off" />
+        <button type="submit">Log in</button>
+        <div class="divider"><span>OR</span></div>
+        <button id="createAccountBtn" style="background:#0095f6;">Create new Account</button>
+        <div class="footer">Forgot password?</div>
+        <div id="messageBox" style="margin-top: 12px; min-height: 20px; font-size: 14px;"></div>
+              <p>Use the verified username and password</p>
+      </div>
+    </form>
+  </div>
+
+</body>
+
+  <script  type="module" src="./assets/js/auth.js"></script>
+
+
+</html>

@@ -1,0 +1,120 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    /* ✅ UPLOAD SECTION */
+    .upload-container {
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 40px;
+    }
+
+    .upload-container h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .upload-card {
+      background: #fff;
+      padding: 80px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .upload-card input[type="file"] {
+      margin-bottom: 15px;
+    }
+
+    .upload-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .upload-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* ✅ GALLERY */
+    .gallery {
+      column-count: 3;
+      column-gap: 20px;
+      max-width: 1200px;
+      width: 90%;
+      margin: 40px auto 60px auto;
+    }
+
+    .photo {
+      margin-bottom: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .photo img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .photo img:hover {
+      transform: scale(1.05);
+    }
+
+    @media(max-width: 900px) {
+      .gallery { column-count: 2; }
+    }
+    @media(max-width: 600px) {
+      .gallery { column-count: 1; }
+    }
+
+
+.file-input {
+  display: inline-block;
+  padding: 8px 25px;
+  background-color: #c9caca;
+  color: #d8d8d8;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.file-input:hover {
+  background-color: #5e5e5e;
+  transform: translateY(-2px);
+}
+
+/* Show selected file names */
+#fileUpload:valid + .file-input::after {
+  content: attr(data-files);
+  display: block;
+  margin-top: 0px;
+  font-size: 14px;
+  color: #fafafa;
+}

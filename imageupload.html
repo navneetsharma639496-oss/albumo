@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyGallery Uploads</title>
+ <link rel="stylesheet" href="./component/navbar.css">
+  <link rel="stylesheet" href="./assets/css/imageupload.css">
+</head>
+
+<body>
+  <div class="nav" id="nav"></div>
+
+
+  <div class="upload-container">
+    <h2>Upload Your Photos</h2>
+
+    <div class="upload-card">
+      <input type="file" id="fileUpload" multiple accept="image/*" hidden />
+      <label for="fileUpload" class="file-input" data-files="Choose Pics"></label>
+      <p class="filesSelected"></p>
+      <button id="uploadBtn" class="upload-btn">Upload Photos</button>
+      <p id="error-message" style="color:red; display:none;"></p>
+    </div>
+  </div>
+
+  <!-- ✅ Modern Gallery -->
+  <div class="gallery" id="gallery"></div>
+
+</body oncontextmenu="return false;">
+  <script  type="module" src="./assets/js/imageupload.js"></script>
+
+</html>

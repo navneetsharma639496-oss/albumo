@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+
+/* Gallery container */
+/* .gallery {
+    column-count: 2; 
+    column-gap: 20px; 
+    max-width: 80%;
+    width: 100%;
+    padding: 50px;
+    background-color: white;
+    border-radius: 7px;
+        box-shadow: 0 4px 8px rgba(54, 54, 54, 0.342);
+}
+ */
+
+.gallery {
+
+    justify-content: center;
+    margin: 2% 10%;
+    column-count: 2; /* Number of columns */
+    column-gap: 20px; /* Space between columns */
+    max-width: 80%;
+    width: 100%;
+    padding: 50px;
+    background-color: white;
+    border-radius: 7px;
+}
+/* Photo card */
+.photo {
+    background-color: #fff;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
+    padding: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.247);
+    box-shadow: 0 4px 8px rgba(54, 54, 54, 0.342);
+    overflow: hidden;
+    margin-bottom: 20px; /* space between images vertically */
+    display: inline-block;
+    width: 100%;
+}
+
+/* Image styling */
+.photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    object-fit: cover; /* ensures nice scaling */
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo img:hover {
+    transform: scale(1.05);
+}
+
+/* Optional caption */
+.photo p {
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Responsive layout: 1 column on small screens */
+@media (max-width: 700px) {
+    .gallery {
+        column-count: 1;
+    }
+}
