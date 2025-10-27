@@ -73,7 +73,7 @@
       }
 
       const folderName = user.uid;
-      window.location.href = `gallery.html?folder=${folderName}`;
+      window.location.href = `index.html?folder=${folderName}`;
     });
   }
     onAuthStateChanged(auth, (user) => {
